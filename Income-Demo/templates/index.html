@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Annual Income Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" name="Age" placeholder="Age" required="required" />
+    	
+    	<label for="Marital_status">Marital Status:</label>
+        <select name="Marital_status" id="Marital_status">
+          <option value="1">Married</option>
+          <option value="0">UnMarried/Divorced</option>
+          required="required" 
+        </select>
+        
+        <label for="Category">Location:</label>
+        <select name="Category" id="Category">
+          <option value="0">Rural</option>
+          <option value="1">Semi-Urban</option>
+          <option value="2">Urban</option>
+          <option value="3">Metro</option>
+          required="required" 
+        </select>
+        
+        <label for="Education">Education:</label>
+        <select name="Education" id="Education">
+          <option value="0">Others</option>
+          <option value="1">Below10</option>
+          <option value="2">12th</option>
+          <option value="3">Above_Graduate</option>
+          required="required" 
+        </select>
+    	
+    	<label for="Gender">Gender:</label>
+        <select name="Gender" id="Gender">
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+          required="required" 
+        </select>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
